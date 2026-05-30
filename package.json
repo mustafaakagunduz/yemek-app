@@ -1,0 +1,25 @@
+{
+  "name": "yemek-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "i18next": "^26.3.0",
+    "i18next-browser-languagedetector": "^8.2.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-i18next": "^17.0.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.5.2",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.3.5"
+  }
+}
