@@ -6,18 +6,24 @@ import IngredientList from './components/IngredientList'
 import RecipeResult from './components/RecipeResult'
 import { getIngredients, getRecipe } from './services/openai'
 
-const STEP = { INPUT: 'input', INGREDIENTS: 'ingredients', RECIPE: 'recipe' }
+const STEP = {
+  INPUT: 'input',
+  INGREDIENTS: 'ingredients',
+  RECIPE: 'recipe',
+} as const
+
+type Step = (typeof STEP)[keyof typeof STEP]
 
 export default function App() {
   const { t, i18n } = useTranslation()
-  const [step, setStep] = useState(STEP.INPUT)
+  const [step, setStep] = useState<Step>(STEP.INPUT)
   const [dish, setDish] = useState('')
-  const [ingredients, setIngredients] = useState([])
+  const [ingredients, setIngredients] = useState<string[]>([])
   const [recipe, setRecipe] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  const handleDishSubmit = async (dishName) => {
+  const handleDishSubmit = async (dishName: string) => {
     setLoading(true)
     setError('')
     try {
@@ -32,7 +38,7 @@ export default function App() {
     }
   }
 
-  const handleIngredientsSubmit = async (selected) => {
+  const handleIngredientsSubmit = async (selected: string[]) => {
     setLoading(true)
     setError('')
     try {

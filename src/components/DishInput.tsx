@@ -1,11 +1,16 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function DishInput({ onSubmit, loading }) {
+interface Props {
+  onSubmit: (dish: string) => void
+  loading: boolean
+}
+
+export default function DishInput({ onSubmit, loading }: Props) {
   const { t } = useTranslation()
   const [dish, setDish] = useState('')
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (dish.trim()) onSubmit(dish.trim())
   }

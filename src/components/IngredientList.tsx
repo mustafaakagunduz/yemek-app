@@ -1,13 +1,20 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export default function IngredientList({ dish, ingredients, onSubmit, loading }) {
-  const { t } = useTranslation()
-  const [checked, setChecked] = useState(new Set())
-  const [extraInput, setExtraInput] = useState('')
-  const [extras, setExtras] = useState([])
+interface Props {
+  dish: string
+  ingredients: string[]
+  onSubmit: (selected: string[]) => void
+  loading: boolean
+}
 
-  const toggle = (item) => {
+export default function IngredientList({ dish, ingredients, onSubmit, loading }: Props) {
+  const { t } = useTranslation()
+  const [checked, setChecked] = useState<Set<string>>(new Set())
+  const [extraInput, setExtraInput] = useState('')
+  const [extras, setExtras] = useState<string[]>([])
+
+  const toggle = (item: string) => {
     setChecked((prev) => {
       const next = new Set(prev)
       next.has(item) ? next.delete(item) : next.add(item)
@@ -23,7 +30,7 @@ export default function IngredientList({ dish, ingredients, onSubmit, loading })
     }
   }
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       e.preventDefault()
       addExtra()

@@ -1,6 +1,11 @@
 import { useTranslation } from 'react-i18next'
 
-export default function RecipeResult({ recipe, onReset }) {
+interface Props {
+  recipe: string
+  onReset: () => void
+}
+
+export default function RecipeResult({ recipe, onReset }: Props) {
   const { t } = useTranslation()
 
   return (

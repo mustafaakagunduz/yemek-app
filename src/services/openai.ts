@@ -1,7 +1,12 @@
 const API_URL = 'https://api.openai.com/v1/chat/completions'
-const apiKey = import.meta.env.VITE_OPENAI_API_KEY
+const apiKey = import.meta.env.VITE_OPENAI_API_KEY as string
 
-async function chat(messages) {
+interface Message {
+  role: 'system' | 'user' | 'assistant'
+  content: string
+}
+
+async function chat(messages: Message[]): Promise<string> {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
@@ -12,12 +17,13 @@ async function chat(messages) {
   })
   if (!res.ok) throw new Error('API request failed')
   const data = await res.json()
-  return data.choices[0].message.content
+  return data.choices[0].message.content as string
 }
 
-const langLabel = (lang) => (lang?.startsWith('tr') ? 'Turkish' : 'English')
+const langLabel = (lang: string): string =>
+  lang?.startsWith('tr') ? 'Turkish' : 'English'
 
-export async function getIngredients(dish, lang) {
+export async function getIngredients(dish: string, lang: string): Promise<string[]> {
   const content = await chat([
     {
       role: 'system',
@@ -30,10 +36,14 @@ export async function getIngredients(dish, lang) {
   ])
   const match = content.match(/\[[\s\S]*\]/)
   if (!match) throw new Error('Invalid response format')
-  return JSON.parse(match[0])
+  return JSON.parse(match[0]) as string[]
 }
 
-export async function getRecipe(dish, ingredients, lang) {
+export async function getRecipe(
+  dish: string,
+  ingredients: string[],
+  lang: string
+): Promise<string> {
   return chat([
     {
       role: 'system',

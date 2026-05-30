@@ -9,19 +9,19 @@ export default function LanguageSwitch() {
       <div className="flex items-center bg-white/20 backdrop-blur-sm rounded-full p-1">
         <button
           onClick={() => i18n.changeLanguage('tr')}
-          className={`px-4 py-2 rounded-full transition-all duration-200 ${
+          className={`px-3 py-1 rounded-full transition-all duration-200 ${
             isTR ? 'bg-white shadow-md' : ''
           }`}
         >
-          <span className="text-xl grayscale">🇹🇷</span>
+          <span className="text-2xl leading-none">🇹🇷</span>
         </button>
         <button
           onClick={() => i18n.changeLanguage('en')}
-          className={`px-4 py-2 rounded-full transition-all duration-200 ${
+          className={`px-3 py-1 rounded-full transition-all duration-200 ${
             !isTR ? 'bg-white shadow-md' : ''
           }`}
         >
-          <span className="text-xl grayscale">🇬🇧</span>
+          <span className="text-2xl leading-none">🇬🇧</span>
         </button>
       </div>
     </div>
