@@ -1,3 +1,14 @@
 {
-  "Food App": "Yemek App"
+  "What dish do you want to make?": "Hangi yemeği yapmak istiyorsun?",
+  "Type a dish name...": "Bir yemek adı yaz...",
+  "Get Ingredients": "Malzemeleri Getir",
+  "Ingredients for {{dish}}": "{{dish}} için malzemeler",
+  "Check the ingredients you have": "Elindeki malzemeleri işaretle",
+  "Add extra ingredient...": "Ekstra malzeme ekle...",
+  "Add": "Ekle",
+  "Get Recipe": "Tarifi Getir",
+  "Your Recipe": "Tarif",
+  "Start Over": "Baştan Başla",
+  "Loading...": "Yükleniyor...",
+  "Something went wrong. Please try again.": "Bir hata oluştu. Tekrar dene."
 }

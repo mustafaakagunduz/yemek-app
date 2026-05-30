@@ -1,3 +1,14 @@
 {
-  "Food App": "Food App"
+  "What dish do you want to make?": "What dish do you want to make?",
+  "Type a dish name...": "Type a dish name...",
+  "Get Ingredients": "Get Ingredients",
+  "Ingredients for {{dish}}": "Ingredients for {{dish}}",
+  "Check the ingredients you have": "Check the ingredients you have",
+  "Add extra ingredient...": "Add extra ingredient...",
+  "Add": "Add",
+  "Get Recipe": "Get Recipe",
+  "Your Recipe": "Your Recipe",
+  "Start Over": "Start Over",
+  "Loading...": "Loading...",
+  "Something went wrong. Please try again.": "Something went wrong. Please try again."
 }
